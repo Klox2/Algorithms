@@ -18,9 +18,9 @@ Array& Array::operator=(const Array& a) {
     if (size_ != a.size_) {
         throw std::invalid_argument("size mismatch");
     }
-    for (size_t i = 0; i < size_; ++i) {
-        data_[i] = a.data_[i];
-    }
+
+    Array tmp(a);
+    std::swap(data_, tmp.data_);
 
     return *this;
 }
